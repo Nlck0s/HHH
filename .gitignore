@@ -1,0 +1,6 @@
+Binaries/
+Saved/
+Intermediate/
+Content/StarterContent/
+*.VC.db
+.vs/HHH/v15/Solution.VC.db-wal
