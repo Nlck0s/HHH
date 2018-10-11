@@ -5,3 +5,7 @@ Content/StarterContent/
 *.VC.db
 .vs/HHH/v15/Solution.VC.db-wal
 .vs/HHH/v15/ipch/AutoPCH/fcc0eee57edc6244/POSITIONREPORT.ipch
+*.ipch
+*.opendb
+*.suo
+*.db-shm
