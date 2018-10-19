@@ -9,3 +9,4 @@ Content/StarterContent/
 *.opendb
 *.suo
 *.db-shm
+*.uasset
