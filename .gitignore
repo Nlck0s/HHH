@@ -10,3 +10,4 @@ Content/StarterContent/
 *.suo
 *.db-shm
 *.uasset
+Build/
