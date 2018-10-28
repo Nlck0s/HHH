@@ -28,30 +28,20 @@ void UopenDoor::BeginPlay()
 	}
 }
 
-void UopenDoor::OpenDoor()
-{
-	Owner->SetActorRotation(FRotator(0.f, OpenAngle, 0.f));
-}
-
-void UopenDoor::CloseDoor()
-{
-	Owner->SetActorRotation(FRotator(0.f, CloseAngle, 0.f));
-}
 
 // Called every frame
 void UopenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-	if (GetTotalMassOnPlate()  > 50.f) //TODO make param
+	if (GetTotalMassOnPlate() == TriggerMass)
 	{
-		OpenDoor();
-		LastDoorOpenTime= GetWorld()->GetTimeSeconds();
+		OnOpen.Broadcast();
 	}
-	if (GetWorld()->GetTimeSeconds() - LastDoorOpenTime >= DoorCloseDelay)
+	else
 	{
-		CloseDoor();
+		OnClose.Broadcast();
 	}
-	
+
 }
 
 float UopenDoor::GetTotalMassOnPlate() {
@@ -63,7 +53,7 @@ float UopenDoor::GetTotalMassOnPlate() {
 
 	for (const auto* Temp : OverlappingActors)
 	{
-		TotalMass +=Temp->FindComponentByClass<UPrimitiveComponent>()->GetMass();
+		TotalMass += Temp->FindComponentByClass<UPrimitiveComponent>()->GetMass();
 		UE_LOG(LogTemp, Warning, TEXT(" is in position %s"), *Temp->GetName());
 	}
 

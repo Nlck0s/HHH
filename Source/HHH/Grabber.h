@@ -30,7 +30,7 @@ public:
 
 private:
 	//Reach of the player
-	float Reach = 100.f;
+	float Reach = 130.f;
 
 	UPhysicsHandleComponent * PhysicsHandle = nullptr;
 		

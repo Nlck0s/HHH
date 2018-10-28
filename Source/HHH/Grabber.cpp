@@ -81,9 +81,6 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	{
 		PhysicsHandle->SetTargetLocation(GetReachLineEnd());
 	}
-	//Spooky Scary lines
-	//DrawDebugLine(GetWorld(), GetReachLineStart(), GetReachLineEnd(), FColor(255, 50, 25), true, 100.f, 0.f, 10.f);
-	//DrawDebugSphere(GetWorld(), GetReachLineStart() - 30, 20.f, 32, FColor(58, 32, 32), true, 100.f, SDPG_MAX, 10.f);
 }
 
 const FHitResult UGrabber::GetFIrstPhysicsBodyInReach()
