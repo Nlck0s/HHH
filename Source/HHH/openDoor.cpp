@@ -33,6 +33,7 @@ void UopenDoor::BeginPlay()
 void UopenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	UE_LOG(LogTemp, Warning, TEXT("%f kg"),GetTotalMassOnPlate());
 	if (GetTotalMassOnPlate() == TriggerMass)
 	{
 		OnOpen.Broadcast();
@@ -54,7 +55,7 @@ float UopenDoor::GetTotalMassOnPlate() {
 	for (const auto* Temp : OverlappingActors)
 	{
 		TotalMass += Temp->FindComponentByClass<UPrimitiveComponent>()->GetMass();
-		UE_LOG(LogTemp, Warning, TEXT(" is in position %s"), *Temp->GetName());
+		UE_LOG(LogTemp, Warning, TEXT("%s is inposition"), *Temp->GetName());
 	}
 
 	return TotalMass;
